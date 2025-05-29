@@ -26,6 +26,7 @@ public class App extends JavaPlugin implements Listener {
 
 	@Override
 	public void onEnable() {
+		getLogger().info("Plugin enabled!");
 		this.luckPerms = LuckPermsProvider.get();
 
 		Bukkit.getPluginManager().registerEvents(this, this);
@@ -51,16 +52,16 @@ public class App extends JavaPlugin implements Listener {
 	@EventHandler
 	public void onJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-
 		User user = luckPerms.getUserManager().getUser(player.getUniqueId());
 		if (user != null) {
 			String primaryGroup = user.getPrimaryGroup();
+			player.sendMessage(primaryGroup);
 			if (!primaryGroup.equalsIgnoreCase("member")) {
 				frozenPlayers.add(player.getUniqueId());
 				player.sendMessage("§cYou are currently frozen until you're added to the member group.");
 			}
 		} else {
-			frozenPlayers.add(player.getUniqueId());
+			frozenPlayers.remove(player.getUniqueId());
 		}
 	}
 

@@ -29,3 +29,4 @@ tasks.jar {
     // This is not recommended for Spigot, usually just use 'compileOnly'
     // To shade dependencies instead, use the Shadow plugin
 }
+

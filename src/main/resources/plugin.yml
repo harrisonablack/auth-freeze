@@ -1,0 +1,7 @@
+name: authFreeze
+version: 1.0.0
+main: dev.blac.auth_freeze.App
+description: Auth plugin
+author: Harrison Black
+website: https://github.com/harrisonablack
+api-version: '1.21.5'
